@@ -89,5 +89,18 @@ class AuthController {
       });
     }
   }
+  async logOut(req, res) {
+    try {
+      return res.status(httpStatusCode.OK).json({
+        success: true,
+        message: "Logged out successfully",
+      });
+    } catch (error) {
+      return res.status(httpStatusCode.INTERNAL_SERVER_ERROR).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  }
 }
 module.exports = new AuthController();
